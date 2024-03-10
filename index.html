@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <audio id="clickSound" src="./click.wav" preload="auto"></audio>
+    <audio id="clickSound2" src="./click2.mp3" preload="auto">
+    </audio>
+    <audio id="clickSound3" src="./click3.mp3" preload="auto">
+    </audio>
+    <div class=" container">
+        <div class="calculator">
+            <h1 style="font-size: 20px;font-family: 'Courier New', Courier, monospace;">CASIO</h1>
+            <form>
+                <div class="display">
+                    <input type="text" id="input_length" min=" 1" maxlength="14" class="display_box" name="display"
+                        value="0" />
+
+                </div>
+
+                <div>
+
+                    <input type="button" class="all_clear" value="AC" onclick="playSound3();display.value='0'">
+                    <input type="button" class="delete" value="DE"
+                        onclick="playSound();if(display.value.length>1) {display.value=display.value.toString().slice(0,-1)} else {display.value='0'}">
+                    <input type="button" class="decimal" value="."
+                        onclick="playSound();if(!display.value.includes('.'))display.value +='.'">
+                    <input type="button" class="operation" value="/" onclick="playSound3(); display.value +='/'">
+                </div>
+                <div>
+
+                    <input type="button" class="num" value="7"
+                        onclick="playSound(); if(display.value==='0') { display.value='7'; } else {display.value +='7';}">
+                    <input type="button" class="num" value="8"
+                        onclick="playSound(); if(display.value==='0') { display.value='8'; } else {display.value +='8';}">
+                    <input type="button" class="num" value="9"
+                        onclick=" playSound();if(display.value==='0') { display.value='9'; } else {display.value +='9';}">
+                    <input type="button" class="operation" value="*" onclick="playSound3();display.value +='*'">
+                </div>
+                <div>
+
+                    <input type="button" class="num" value="4"
+                        onclick="playSound(); if(display.value==='0') { display.value='4'; } else {display.value +='4';}">
+                    <input type="button" class="num" value="5"
+                        onclick="playSound(); if(display.value==='0') { display.value='5'; } else {display.value +='5';}">
+                    <input type="button" class="num" value="6"
+                        onclick="playSound(); if(display.value==='0') { display.value='6'; } else {display.value +='6';}">
+                    <input type="button" class="operation" value="-" onclick="playSound3();display.value +='-'">
+                </div>
+                <div>
+
+                    <input type="button" class="num" value="1"
+                        onclick="playSound(); if(display.value==='0') { display.value='1'; } else {display.value +='1';}">
+                    <input type="button" class="num" value="2"
+                        onclick="playSound(); if(display.value==='0') { display.value='2'; } else {display.value +='2';}">
+                    <input type="button" class="num" value="3"
+                        onclick="playSound();if(display.value==='0') { display.value='3'; } else {display.value +='3';}">
+                    <input type="button" class="operation" value="+" onclick="playSound3(); display.value +='+'">
+                </div>
+                <div>
+
+                    <input type="button" class="num" value="00" onclick="playSound(); display.value +='00'">
+                    <input type="button" class="num" value="0" onclick="playSound(); display.value +='0'">
+                    <input type="button" value="=" class="equal"
+                        onclick="playSound2(); display.value = eval(display.value.slice(0,13))">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function playSound() {
+            document.getElementById('clickSound').play()
+        }
+        function playSound2() {
+            document.getElementById('clickSound2').play()
+        }
+        function playSound3() {
+            document.getElementById('clickSound3').play()
+        }
+    </script>
+    <script id="DragDropTouch" src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
+</body>
+
+</html>
