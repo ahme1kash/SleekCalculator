@@ -19,7 +19,7 @@
     border-radius: 10px;
 }
 
-.calculator form input {
+form input {
     border-color: #ffdada;
     outline: 0;
     width: 60px;
@@ -52,6 +52,10 @@ form input.equal {
     color: #0513e0;
     background-color: rgb(220, 237, 217);
     font-size: 20px;
+}
+
+form input.decimal {
+    background-color: rgb(85, 172, 248);
 }
 
 form input.all_clear,

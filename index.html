@@ -11,71 +11,130 @@
 
 <body>
 
-    <audio id="clickSound2" src="./click2.mp3" preload="auto">
+    <audio id="clickSound" src="./click.mp3" preload="auto">
     </audio>
     <div class=" container">
         <div class="calculator">
             <h1 style="font-size: 20px;font-family: 'Courier New', Courier, monospace;">CASIO</h1>
             <form>
                 <div class="display">
-                    <input type="text" id="input_length" min=" 1" maxlength="14" class="display_box" name="display"
-                        value="0" />
+                    <input type="text" id="input_length" maxlength="12" class="display_box" name="display" value="0" />
 
                 </div>
 
                 <div>
 
-                    <input type="button" class="all_clear" value="AC" onclick="playSound3();display.value='0'">
+                    <input type="button" class="all_clear" value="AC" onclick="playSound();display.value='0'">
                     <input type="button" class="delete" value="DE"
-                        onclick="playSound3();if(display.value.length>1) {display.value=display.value.toString().slice(0,-1)} else {display.value='0'}">
+                        onclick="playSound();if(display.value.length>1) {display.value=display.value.toString().slice(0,-1)} else {display.value='0'}">
                     <input type="button" class="decimal" value="."
-                        onclick="playSound3();if(!display.value.includes('.'))display.value +='.'">
-                    <input type="button" class="operation" value="/" onclick="playSound3(); display.value +='/'">
+                        onclick="playSound();if(!display.value.includes('.'))display.value +='.'">
+                    <input type="button" class="operation" value="/" onclick="playSound(); display.value +='/'">
                 </div>
                 <div>
 
                     <input type="button" class="num" value="7"
-                        onclick="playSound3(); if(display.value==='0') { display.value='7'; } else {display.value +='7';}">
+                        onclick="playSound(); if(display.value==='0') { display.value='7'; } else {display.value +='7';}">
                     <input type="button" class="num" value="8"
-                        onclick="playSound3(); if(display.value==='0') { display.value='8'; } else {display.value +='8';}">
+                        onclick="playSound(); if(display.value==='0') { display.value='8'; } else {display.value +='8';}">
                     <input type="button" class="num" value="9"
-                        onclick=" playSound3();if(display.value==='0') { display.value='9'; } else {display.value +='9';}">
-                    <input type="button" class="operation" value="*" onclick="playSound3();display.value +='*'">
+                        onclick=" playSound();if(display.value==='0') { display.value='9'; } else {display.value +='9';}">
+                    <input type="button" class="operation" value="*" onclick="playSound();display.value +='*'">
                 </div>
                 <div>
 
                     <input type="button" class="num" value="4"
-                        onclick="playSound3(); if(display.value==='0') { display.value='4'; } else {display.value +='4';}">
+                        onclick="playSound(); if(display.value==='0') { display.value='4'; } else {display.value +='4';}">
                     <input type="button" class="num" value="5"
-                        onclick="playSound3(); if(display.value==='0') { display.value='5'; } else {display.value +='5';}">
+                        onclick="playSound(); if(display.value==='0') { display.value='5'; } else {display.value +='5';}">
                     <input type="button" class="num" value="6"
-                        onclick="playSound3(); if(display.value==='0') { display.value='6'; } else {display.value +='6';}">
-                    <input type="button" class="operation" value="-" onclick="playSound3();display.value +='-'">
+                        onclick="playSound(); if(display.value==='0') { display.value='6'; } else {display.value +='6';}">
+                    <input type="button" class="operation" value="-" onclick="playSound();display.value +='-'">
                 </div>
                 <div>
 
                     <input type="button" class="num" value="1"
-                        onclick="playSound3(); if(display.value==='0') { display.value='1'; } else {display.value +='1';}">
+                        onclick="playSound(); if(display.value==='0') { display.value='1'; } else {display.value +='1';}">
                     <input type="button" class="num" value="2"
-                        onclick="playSound3(); if(display.value==='0') { display.value='2'; } else {display.value +='2';}">
+                        onclick="playSound(); if(display.value==='0') { display.value='2'; } else {display.value +='2';}">
                     <input type="button" class="num" value="3"
-                        onclick="playSound3();if(display.value==='0') { display.value='3'; } else {display.value +='3';}">
-                    <input type="button" class="operation" value="+" onclick="playSound3(); display.value +='+'">
+                        onclick="playSound();if(display.value==='0') { display.value='3'; } else {display.value +='3';}">
+                    <input type="button" class="operation" value="+" onclick="playSound(); display.value +='+'">
                 </div>
                 <div>
 
-                    <input type="button" class="num" value="00" onclick="playSound3(); display.value +='00'">
-                    <input type="button" class="num" value="0" onclick="playSound3(); display.value +='0'">
+                    <input type="button" class="num" value="00" onclick="playSound();  display.value +='00'">
+                    <input type="button" class="num" value="0" onclick="playSound(); display.value +='0'">
                     <input type="button" value="=" class="equal"
-                        onclick="playSound3(); display.value = (eval(display.value.slice(0,13)))">
+                        onclick="playSound(); display.value = (eval(display.value.slice(0,13)))" />
                 </div>
             </form>
         </div>
     </div>
     <script>
-        function playSound3() {
-            document.getElementById('clickSound2').play()
+
+        (function () {
+            document.querySelectorAll(".num").forEach((elem) => {
+                elem.addEventListener('click', () => {
+                    elem.style.backgroundColor = '#27E0A4';
+                    setTimeout(() => {
+
+                        elem.style.backgroundColor = '#ffffff';
+                    }, 150)
+                })
+
+            }
+
+            )
+            document.querySelectorAll(".operation").forEach((elem) => {
+                elem.addEventListener('click', () => {
+                    elem.style.backgroundColor = '#00FF7E';
+                    setTimeout(() => {
+
+                        elem.style.backgroundColor = '#2c3A81';
+                    }, 150)
+                })
+
+            }
+
+            )
+
+            document.querySelector(".all_clear").addEventListener('click', () => {
+                document.querySelector(".all_clear").style.backgroundColor = '#F9684A';
+                setTimeout(() => {
+
+                    document.querySelector(".all_clear").style.backgroundColor = 'rgb(220, 237, 217)';
+                }, 150)
+            })
+            document.querySelector(".delete").addEventListener('click', () => {
+                document.querySelector(".delete").style.backgroundColor = '#FF9900';
+                setTimeout(() => {
+
+                    document.querySelector(".delete").style.backgroundColor = 'rgb(220, 237, 217)';
+                }, 150)
+            })
+            document.querySelector(".decimal").addEventListener('click', () => {
+                document.querySelector(".decimal").style.backgroundColor = '#A506CA';
+                setTimeout(() => {
+
+                    document.querySelector(".decimal").style.backgroundColor = 'rgb(85, 172, 248)';
+                }, 150)
+            })
+            document.querySelector(".equal").addEventListener('click', () => {
+                document.querySelector(".equal").style.backgroundColor = '#0F0BF1';
+                setTimeout(() => {
+
+                    document.querySelector(".equal").style.backgroundColor = 'rgb(220, 237, 217)';
+                }, 150)
+            })
         }
+            ());
+
+
+        function playSound() {
+            document.getElementById('clickSound').play()
+        }
+
     </script>
     <script id="DragDropTouch" src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
 </body>
